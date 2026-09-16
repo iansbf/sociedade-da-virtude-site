@@ -1,44 +1,34 @@
 "use client"
 
-import { useEffect, useMemo, useState, useSyncExternalStore } from "react"
+import { useEffect, useState, useSyncExternalStore } from "react"
 import {
   APRESENTACAO,
-  APRESENTACAO_PLACEHOLDER,
+  CARTELAS,
+  HERO_LOGO,
   I18N,
   SHOWS,
   type Lang,
 } from "@/lib/catalog"
 
-function formatViews(views: number | null, isPt: boolean) {
-  const word = isPt ? "visualizações" : "views"
-  if (views === null || views === undefined) {
-    return { empty: true, text: `— ${word}` }
-  }
-  return {
-    empty: false,
-    text: `${views.toLocaleString(isPt ? "pt-BR" : "en-US")} ${word}`,
-  }
-}
-
-function VideoCard({
-  id,
-  lang,
-  views,
-  synopsis,
-}: {
-  id: string
-  lang: Lang
-  views: number | null
-  synopsis: string
-}) {
+function VideoCard({ id, lang }: { id: string; lang: Lang }) {
   const [playing, setPlaying] = useState(false)
+  const [thumb, setThumb] = useState(
+    `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`
+  )
   const isPt = lang === "pt"
   const label = isPt ? "Assista em Português" : "Watch in English"
   const flag = isPt ? "🇧🇷" : "🇺🇸"
-  const viewLabel = formatViews(views, isPt)
 
   function play() {
     setPlaying(true)
+  }
+
+  function onThumbError() {
+    if (thumb.includes("maxresdefault")) {
+      setThumb(`https://i.ytimg.com/vi/${id}/sddefault.jpg`)
+    } else if (thumb.includes("sddefault")) {
+      setThumb(`https://i.ytimg.com/vi/${id}/hqdefault.jpg`)
+    }
   }
 
   return (
@@ -70,13 +60,13 @@ function VideoCard({
             />
           ) : (
             <>
-              {/* YouTube thumbnails are remote and used as click-to-play posters. */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 className="thumb"
                 loading="lazy"
-                src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
+                src={thumb}
                 alt="Miniatura do vídeo"
+                onError={onThumbError}
               />
               <span className="play">
                 <svg viewBox="0 0 24 24">
@@ -87,16 +77,6 @@ function VideoCard({
           )}
         </div>
         <div className="vmeta">
-          <span className="views">
-            <svg viewBox="0 0 24 24">
-              <path d="M12 5c-7 0-10 7-10 7s3 7 10 7 10-7 10-7-3-7-10-7zm0 11a4 4 0 110-8 4 4 0 010 8zm0-6a2 2 0 100 4 2 2 0 000-4z" />
-            </svg>
-            {viewLabel.empty ? (
-              <span className="dim">{viewLabel.text}</span>
-            ) : (
-              viewLabel.text
-            )}
-          </span>
           <a
             className="yt"
             href={`https://www.youtube.com/watch?v=${id}`}
@@ -107,7 +87,6 @@ function VideoCard({
           </a>
         </div>
       </div>
-      <p className="synopsis">{synopsis}</p>
     </div>
   )
 }
@@ -128,9 +107,16 @@ function readLang(): Lang {
 }
 
 export function ContentSite() {
-  const storedLang = useSyncExternalStore<Lang>(subscribeLang, readLang, () => "pt")
+  const storedLang = useSyncExternalStore<Lang>(
+    subscribeLang,
+    readLang,
+    () => "pt"
+  )
   const [override, setOverride] = useState<Lang | null>(null)
   const lang = override ?? storedLang
+  const copy = I18N[lang]
+  const intro = APRESENTACAO[lang]
+  const cartelas = CARTELAS[lang]
 
   function setLang(next: Lang) {
     setOverride(next)
@@ -145,16 +131,10 @@ export function ContentSite() {
     document.documentElement.lang = I18N[lang].lang
   }, [lang])
 
-  const copy = I18N[lang]
-  const intro = useMemo(() => APRESENTACAO[lang], [lang])
-
   return (
     <>
       <div className="langbar">
         <div className="inner">
-          <div className="brandmark">
-            Sociedade da <span>Virtude</span>
-          </div>
           <div className="switch" role="group" aria-label="Idioma / Language">
             <button
               type="button"
@@ -176,68 +156,62 @@ export function ContentSite() {
 
       <header className="hero">
         <div className="wrap">
-          <p className="eyebrow">{copy.eyebrow}</p>
-          <h1>
-            Sociedade
-            <br />
-            da Virtude
-            <span className="thin">Society of Virtue</span>
-          </h1>
-          <p className="lede">{copy.lede}</p>
-          <div className="meta-row">
-            <span className="chip">
-              <strong>8</strong>&nbsp; {copy.titles}
-            </span>
-            <span className="chip">
-              <strong>8</strong>&nbsp; {copy.videosWord}
-            </span>
-            <span className="chip">PT&nbsp;·&nbsp;EN</span>
-            <span className="chip">Animação de Virtude</span>
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className="hero-logo" alt="Society of Virtue" src={HERO_LOGO} />
         </div>
       </header>
 
-      <section className="intro">
-        <div className="wrap">
-          <h2>{copy.introTitle}</h2>
-          <div className="body">
-            {intro.length === 0 ? (
-              <p className="placeholder">{APRESENTACAO_PLACEHOLDER[lang]}</p>
-            ) : (
-              intro.map((paragraph) => <p key={paragraph}>{paragraph}</p>)
-            )}
+      {intro.length > 0 ? (
+        <section className="intro">
+          <div className="wrap">
+            <div className="body">
+              {intro.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ) : null}
+
+      {cartelas.length > 0 ? (
+        <section className="cartelas wrap">
+          {cartelas.map((src, index) => (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              key={src}
+              loading="lazy"
+              src={src}
+              alt={`Cartela ${index + 1}`}
+            />
+          ))}
+        </section>
+      ) : null}
 
       <div className="wrap">
         <p className="videos-title">{copy.videosTitle}</p>
       </div>
 
       <main className="wrap">
-        {SHOWS.map((show, index) => (
-          <section className="show" id={`s${index + 1}`} key={show.title}>
-            <div className="show-head">
-              <h2 className="show-title">{show.title}</h2>
-              {show.tag ? <span className="show-tag">{show.tag}</span> : null}
-            </div>
-            <div className="videos">
-              {show.videos
-                .filter((video) => video.lang === lang)
-                .map((video) => (
+        {SHOWS.map((show, index) => {
+          const videos = show.videos.filter((video) => video.lang === lang)
+          if (videos.length === 0) return null
+          return (
+            <section className="show" id={`s${index + 1}`} key={show.title}>
+              <div className="show-head">
+                <h2 className="show-title">{show.title}</h2>
+              </div>
+              <div className="videos">
+                {videos.map((video) => (
                   <VideoCard
                     key={`${show.title}-${video.id}`}
                     id={video.id}
                     lang={video.lang}
-                    views={video.views}
-                    synopsis={
-                      video.lang === "pt" ? show.synopsis.pt : show.synopsis.en
-                    }
                   />
                 ))}
-            </div>
-          </section>
-        ))}
+              </div>
+            </section>
+          )
+        })}
       </main>
 
       <footer>
