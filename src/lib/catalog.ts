@@ -63,6 +63,13 @@ export const SHOWS: {
     ],
   },
   {
+    title: { pt: "Poison", en: "Poison" },
+    videos: [
+      { id: "u8CFI_oXe-A", lang: "pt" as const, views: 1_291_000 },
+      { id: "EcVZs36g8XA", lang: "en" as const, views: 410_753 },
+    ],
+  },
+  {
     title: {
       pt: "Quem é o Vigilante Noturno",
       en: "Who Is Black Badness?",
@@ -80,13 +87,6 @@ export const SHOWS: {
     videos: [
       { id: "IEOh12k_SsA", lang: "pt" as const, views: 155_509 },
       { id: "-s6F9r92BIw", lang: "en" as const, views: 77_862 },
-    ],
-  },
-  {
-    title: { pt: "Poison", en: "Poison" },
-    videos: [
-      { id: "u8CFI_oXe-A", lang: "pt" as const, views: 1_291_000 },
-      { id: "EcVZs36g8XA", lang: "en" as const, views: 410_753 },
     ],
   },
   {
