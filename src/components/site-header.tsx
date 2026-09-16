@@ -8,7 +8,6 @@ import {
   SheetContent,
   SheetHeader,
   SheetTitle,
-  SheetTrigger,
 } from "@/components/ui/sheet"
 import { ComicSeal } from "@/components/comic-seal"
 import { nav, site } from "@/lib/site"
@@ -46,23 +45,24 @@ export function SiteHeader() {
           </Button>
         </nav>
 
+        <Button
+          type="button"
+          variant="outline"
+          size="icon"
+          aria-expanded={open}
+          aria-controls="menu-mobile"
+          className="rounded-none border-2 border-yellow bg-transparent text-yellow lg:hidden"
+          onClick={() => setOpen(true)}
+        >
+          <Menu />
+          <span className="sr-only">Abrir menu</span>
+        </Button>
+
         <Sheet open={open} onOpenChange={setOpen}>
-          <SheetTrigger
-            nativeButton={false}
-            render={
-              <Button
-                variant="outline"
-                size="icon"
-                className="rounded-none border-2 border-yellow bg-transparent text-yellow lg:hidden"
-              />
-            }
-          >
-            <Menu />
-            <span className="sr-only">Abrir menu</span>
-          </SheetTrigger>
           <SheetContent
+            id="menu-mobile"
             side="right"
-            className="border-l-4 border-yellow bg-ink text-cream"
+            className="z-[60] border-l-4 border-yellow bg-ink text-cream"
           >
             <SheetHeader>
               <SheetTitle className="font-heading text-xl uppercase tracking-[0.2em] text-yellow">
