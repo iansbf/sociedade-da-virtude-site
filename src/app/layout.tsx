@@ -1,46 +1,32 @@
 import type { Metadata } from "next"
-import { Bangers, Geist, Oswald } from "next/font/google"
+import { Anton, Barlow } from "next/font/google"
 import "./globals.css"
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-})
-
-const oswald = Oswald({
-  variable: "--font-oswald",
+const barlow = Barlow({
+  variable: "--font-barlow",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 })
 
-const bangers = Bangers({
-  variable: "--font-bangers",
+const anton = Anton({
+  variable: "--font-anton",
   subsets: ["latin"],
   weight: "400",
 })
 
 export const metadata: Metadata = {
-  title: {
-    default: "Sociedade da Virtude: A Série",
-    template: "%s · Sociedade da Virtude",
-  },
+  metadataBase: new URL("https://societyofvirtuestudios.com"),
+  title: "Sociedade da Virtude",
   description:
-    "Site oficial de Sociedade da Virtude: A Série. As origens dos heróis de Megalópolisville, agora na Max e no Adult Swim.",
-  keywords: [
-    "Sociedade da Virtude",
-    "Ian SBF",
-    "Thobias Daneluz",
-    "HBO Max",
-    "Adult Swim",
-    "Neebla",
-  ],
+    "Uma seleção das séries e produções do universo animado da Sociedade da Virtude. Society of Virtue studios.",
   icons: {
     icon: "/favicon.svg",
   },
   openGraph: {
-    title: "Sociedade da Virtude: A Série",
+    title: "Sociedade da Virtude",
     description:
-      "As origens dos heróis de Megalópolisville. Estreou em 24 de abril de 2026 na Max e no Adult Swim.",
+      "Séries e produções do universo animado da Sociedade da Virtude.",
+    url: "https://societyofvirtuestudios.com",
     locale: "pt_BR",
     type: "website",
   },
@@ -48,13 +34,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="pt-BR"
-      className={`${geistSans.variable} ${oswald.variable} ${bangers.variable} dark h-full`}
-    >
-      <body className="flex min-h-full flex-col bg-ink font-sans text-cream antialiased">
-        {children}
-      </body>
+    <html lang="pt-BR" className={`${barlow.variable} ${anton.variable}`}>
+      <body>{children}</body>
     </html>
   )
 }
