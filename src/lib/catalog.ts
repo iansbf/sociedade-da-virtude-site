@@ -81,22 +81,22 @@ export const SHOWS: {
   },
   {
     title: {
-      pt: "Jonathan e Samantha e o assédio sexual",
-      en: "Jonathan and Samantha and the Sexual Harassment",
-    },
-    videos: [
-      { id: "IEOh12k_SsA", lang: "pt" as const, views: 155_509 },
-      { id: "-s6F9r92BIw", lang: "en" as const, views: 77_862 },
-    ],
-  },
-  {
-    title: {
       pt: "Pantera Ruiva na Ilha de Alumínio",
       en: "Ginger Panther on the Aluminium Island",
     },
     videos: [
       { id: "WUxie5cRafM", lang: "pt" as const, views: 1_058_566 },
       { id: "-8UvhGDWKyg", lang: "en" as const, views: 428_554 },
+    ],
+  },
+  {
+    title: {
+      pt: "Jonathan e Samantha e o assédio sexual",
+      en: "Jonathan and Samantha and the Sexual Harassment",
+    },
+    videos: [
+      { id: "IEOh12k_SsA", lang: "pt" as const, views: 155_509 },
+      { id: "-s6F9r92BIw", lang: "en" as const, views: 77_862 },
     ],
   },
   {
