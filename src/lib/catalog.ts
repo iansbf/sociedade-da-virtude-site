@@ -5,11 +5,13 @@ export const I18N = {
     lang: "pt-BR",
     videosTitle: "Alguns vídeos",
     backTop: "↑ Voltar ao topo",
+    channelNote: "Só no canal brasileiro",
   },
   en: {
     lang: "en-US",
     videosTitle: "Some videos",
     backTop: "↑ Back to top",
+    channelNote: "Only on the American channel",
   },
 } as const
 
@@ -33,7 +35,7 @@ export const CARTELAS: Record<Lang, string[]> = {
     "images/cartelas/pt-09.jpg",
   ],
   en: [
-    "images/cartelas/en-01.jpg",
+    "images/cartelas/en-01-v2.jpg",
     "images/cartelas/en-02.jpg",
     "images/cartelas/en-03.jpg",
     "images/cartelas/en-04.jpg",

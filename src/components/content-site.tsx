@@ -88,6 +88,11 @@ function VideoCard({
             <p className="views">
               <span className="views-label">VIEWS:</span>
               {formatViews(views, lang)}
+              <span className="views-channel">
+                {isPt
+                  ? "Só no canal brasileiro"
+                  : "Only on the American channel"}
+              </span>
             </p>
           ) : null}
           <a
