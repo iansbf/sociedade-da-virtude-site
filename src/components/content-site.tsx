@@ -195,15 +195,16 @@ export function ContentSite() {
         {SHOWS.map((show, index) => {
           const videos = show.videos.filter((video) => video.lang === lang)
           if (videos.length === 0) return null
+          const title = show.title[lang]
           return (
-            <section className="show" id={`s${index + 1}`} key={show.title}>
+            <section className="show" id={`s${index + 1}`} key={show.title.pt}>
               <div className="show-head">
-                <h2 className="show-title">{show.title}</h2>
+                <h2 className="show-title">{title}</h2>
               </div>
               <div className="videos">
                 {videos.map((video) => (
                   <VideoCard
-                    key={`${show.title}-${video.id}`}
+                    key={`${show.title.pt}-${video.id}`}
                     id={video.id}
                     lang={video.lang}
                   />

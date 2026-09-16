@@ -47,63 +47,81 @@ export const CARTELAS: Record<Lang, string[]> = {
 
 export const SHOWS = [
   {
-    title: "Black Zebra",
+    title: { pt: "Black Zebra", en: "Black Zebra" },
     videos: [
       { id: "tN4NeY_GUmA", lang: "pt" as const },
       { id: "CFY1wBMf8qc", lang: "en" as const },
     ],
   },
   {
-    title: "Quem é o Vigilante Noturno",
+    title: {
+      pt: "Quem é o Vigilante Noturno",
+      en: "Who Is the Night Vigilante?",
+    },
     videos: [
       { id: "izH9F8hMgvY", lang: "pt" as const },
       { id: "S2FytAQhgFk", lang: "en" as const },
     ],
   },
   {
-    title: "Jonathan e Samantha e o assédio sexual",
+    title: {
+      pt: "Jonathan e Samantha e o assédio sexual",
+      en: "Jonathan and Samantha and the Sexual Harassment",
+    },
     videos: [
       { id: "IEOh12k_SsA", lang: "pt" as const },
       { id: "-s6F9r92BIw", lang: "en" as const },
     ],
   },
   {
-    title: "Poison",
+    title: { pt: "Poison", en: "Poison" },
     videos: [
       { id: "u8CFI_oXe-A", lang: "pt" as const },
       { id: "EcVZs36g8XA", lang: "en" as const },
     ],
   },
   {
-    title: "Pantera Ruiva na Ilha de Alumínio",
+    title: {
+      pt: "Pantera Ruiva na Ilha de Alumínio",
+      en: "Ginger Panther on the Aluminium Island",
+    },
     videos: [
       { id: "WUxie5cRafM", lang: "pt" as const },
       { id: "-8UvhGDWKyg", lang: "en" as const },
     ],
   },
   {
-    title: "Os Gêmeos Hyper-Poderosos",
+    title: {
+      pt: "Os Gêmeos Hyper-Poderosos",
+      en: "The Hyperpowerful Twins",
+    },
     videos: [
       { id: "TkcwROw2MMA", lang: "pt" as const },
       { id: "KO4R6ef2EcA", lang: "en" as const },
     ],
   },
   {
-    title: "As Garotas Ultra Fortes",
+    title: {
+      pt: "As Garotas Ultra Fortes",
+      en: "The Ultra Strong Girls",
+    },
     videos: [
       { id: "r6g5Y26B6C0", lang: "pt" as const },
       { id: "X8Xg6tISJaY", lang: "en" as const },
     ],
   },
   {
-    title: "Os Impressionantes",
+    title: { pt: "Os Impressionantes", en: "The Impressives" },
     videos: [
       { id: "M6o1lTztQRQ", lang: "pt" as const },
       { id: "_nCkFGrYsfU", lang: "en" as const },
     ],
   },
   {
-    title: "Episódio 3 - Sociedade da Virtude: A Série",
+    title: {
+      pt: "Episódio 3 - Sociedade da Virtude: A Série",
+      en: "Episode 3 - Society of Virtue: The Series",
+    },
     videos: [
       { id: "QaE3jyUuHMs", lang: "pt" as const },
       { id: "9FR0bed8kCk", lang: "en" as const },
