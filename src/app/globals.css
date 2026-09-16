@@ -1,0 +1,151 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-oswald);
+  --font-display: var(--font-bangers);
+  --color-ink: #0a0908;
+  --color-cream: #f4ead8;
+  --color-yellow: #ffe14a;
+  --color-red: #e31c23;
+  --color-paper: #efe2c4;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-xl: 0;
+  --radius-2xl: 0;
+  --radius-3xl: 0;
+  --radius-4xl: 0;
+}
+
+:root {
+  --background: #0a0908;
+  --foreground: #f4ead8;
+  --card: #14110f;
+  --card-foreground: #f4ead8;
+  --popover: #0a0908;
+  --popover-foreground: #f4ead8;
+  --primary: #ffe14a;
+  --primary-foreground: #0a0908;
+  --secondary: #e31c23;
+  --secondary-foreground: #f4ead8;
+  --muted: #1b1714;
+  --muted-foreground: #cbbfa8;
+  --accent: #ffe14a;
+  --accent-foreground: #0a0908;
+  --destructive: #e31c23;
+  --border: #ffe14a;
+  --input: #2a2420;
+  --ring: #ffe14a;
+  --chart-1: #ffe14a;
+  --chart-2: #e31c23;
+  --chart-3: #3ec6ff;
+  --chart-4: #f4ead8;
+  --chart-5: #7b2cbf;
+  --radius: 0;
+  --sidebar: #0a0908;
+  --sidebar-foreground: #f4ead8;
+  --sidebar-primary: #ffe14a;
+  --sidebar-primary-foreground: #0a0908;
+  --sidebar-accent: #1b1714;
+  --sidebar-accent-foreground: #f4ead8;
+  --sidebar-border: #ffe14a;
+  --sidebar-ring: #ffe14a;
+}
+
+.dark {
+  --background: #0a0908;
+  --foreground: #f4ead8;
+  --card: #14110f;
+  --card-foreground: #f4ead8;
+  --popover: #0a0908;
+  --popover-foreground: #f4ead8;
+  --primary: #ffe14a;
+  --primary-foreground: #0a0908;
+  --secondary: #e31c23;
+  --secondary-foreground: #f4ead8;
+  --muted: #1b1714;
+  --muted-foreground: #cbbfa8;
+  --accent: #ffe14a;
+  --accent-foreground: #0a0908;
+  --destructive: #e31c23;
+  --border: #ffe14a;
+  --input: #2a2420;
+  --ring: #ffe14a;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ink text-cream;
+    background-image:
+      radial-gradient(circle at 12% 8%, rgba(227, 28, 35, 0.18), transparent 28%),
+      radial-gradient(circle at 88% 0%, rgba(255, 225, 74, 0.12), transparent 32%);
+  }
+}
+
+.halftone {
+  background-image: radial-gradient(#ffe14a 0.9px, transparent 1.1px);
+  background-size: 8px 8px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 78%);
+}
+
+.burst {
+  background: repeating-conic-gradient(
+    from 0deg,
+    #ffe14a 0deg 6deg,
+    transparent 6deg 18deg
+  );
+  border-radius: 50%;
+  filter: blur(0.4px);
+}
+
+.comic-panel {
+  box-shadow: 6px 6px 0 #0a0908;
+}
+
+.ink-bar {
+  background: rgba(10, 9, 8, 0.92);
+  backdrop-filter: blur(10px);
+}
