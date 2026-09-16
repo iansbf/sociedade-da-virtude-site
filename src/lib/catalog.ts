@@ -55,8 +55,8 @@ export const SHOWS = [
   },
   {
     title: {
-      pt: "Quem é o Vigilante Noturno",
-      en: "Who Is the Night Vigilante?",
+      pt: "Quem é o Black Badness",
+      en: "Who Is Black Badness?",
     },
     videos: [
       { id: "izH9F8hMgvY", lang: "pt" as const },
