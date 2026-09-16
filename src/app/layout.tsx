@@ -20,7 +20,12 @@ export const metadata: Metadata = {
   description:
     "Uma seleção das séries e produções do universo animado da Sociedade da Virtude. Society of Virtue studios.",
   icons: {
-    icon: "/favicon.svg",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-32.png", type: "image/png", sizes: "32x32" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: "/apple-icon.png",
   },
   openGraph: {
     title: "Sociedade da Virtude",
