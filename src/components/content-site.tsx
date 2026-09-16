@@ -28,8 +28,7 @@ function VideoCard({
     `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`
   )
   const isPt = lang === "pt"
-  const label = isPt ? "Assista em Português" : "Watch in English"
-  const flag = isPt ? "🇧🇷" : "🇺🇸"
+  const label = isPt ? "Reproduzir vídeo" : "Play video"
 
   function play() {
     setPlaying(true)
@@ -45,16 +44,12 @@ function VideoCard({
 
   return (
     <div className="video">
-      <div className="vlabel">
-        <span className="flag">{flag}</span>
-        {label}
-      </div>
       <div className="card">
         <div
           className="frame"
           role="button"
           tabIndex={0}
-          aria-label={`${isPt ? "Reproduzir vídeo" : "Play video"} (${label})`}
+          aria-label={label}
           onClick={play}
           onKeyDown={(event) => {
             if (event.key === "Enter" || event.key === " ") {

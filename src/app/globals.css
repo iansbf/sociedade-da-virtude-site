@@ -111,13 +111,6 @@ main { padding-block: 8px 40px; }
 .video { display: flex; flex-direction: column; }
 .video[hidden] { display: none; }
 
-.vlabel {
-  display: flex; align-items: center; gap: 8px;
-  text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700;
-  font-size: 12px; color: var(--accent); margin-bottom: 10px;
-}
-.vlabel .flag { font-size: 15px; letter-spacing: 0; }
-
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
 .frame { position: relative; aspect-ratio: 16 / 9; background: #000; cursor: pointer; overflow: hidden; }
 .frame img.thumb {
