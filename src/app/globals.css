@@ -140,14 +140,23 @@ main { padding-block: 8px 40px; }
 .play svg { width: 26px; height: 26px; margin-left: 3px; fill: #0e0f1a; }
 .frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; z-index: 3; }
 
-.vmeta { display: flex; align-items: center; justify-content: flex-end; gap: 10px; padding: 12px 14px 14px; }
-.views {
-  display: inline-flex; align-items: center; gap: 7px;
-  font-size: 13px; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums;
+.vmeta {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 8px;
+  padding: 16px 18px 18px;
 }
-.views svg { width: 15px; height: 15px; fill: var(--muted); }
-.views .dim { color: var(--muted); font-weight: 500; }
-.vmeta a.yt { font-size: 12px; color: var(--muted); text-decoration: none; font-weight: 600; }
+.views {
+  margin: 0;
+  font-family: var(--font-anton), sans-serif;
+  font-weight: 400;
+  font-size: clamp(22px, 2.8vw, 30px);
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.views-label { color: var(--accent); margin-right: 0.28em; }
+.vmeta a.yt { font-size: 13px; color: var(--muted); text-decoration: none; font-weight: 600; }
 .vmeta a.yt:hover { color: var(--ink); }
 .synopsis { padding: 4px 14px 16px; font-size: 14px; color: var(--muted); line-height: 1.55; }
 

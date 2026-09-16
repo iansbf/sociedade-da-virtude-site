@@ -45,12 +45,21 @@ export const CARTELAS: Record<Lang, string[]> = {
   ],
 }
 
-export const SHOWS = [
+export type CatalogVideo = {
+  id: string
+  lang: Lang
+  views?: number
+}
+
+export const SHOWS: {
+  title: Record<Lang, string>
+  videos: CatalogVideo[]
+}[] = [
   {
     title: { pt: "Black Zebra", en: "Black Zebra" },
     videos: [
-      { id: "tN4NeY_GUmA", lang: "pt" as const },
-      { id: "CFY1wBMf8qc", lang: "en" as const },
+      { id: "tN4NeY_GUmA", lang: "pt" as const, views: 547_992 },
+      { id: "CFY1wBMf8qc", lang: "en" as const, views: 178_955 },
     ],
   },
   {
@@ -59,8 +68,8 @@ export const SHOWS = [
       en: "Who Is Black Badness?",
     },
     videos: [
-      { id: "izH9F8hMgvY", lang: "pt" as const },
-      { id: "S2FytAQhgFk", lang: "en" as const },
+      { id: "izH9F8hMgvY", lang: "pt" as const, views: 104_713 },
+      { id: "S2FytAQhgFk", lang: "en" as const, views: 141_702 },
     ],
   },
   {
@@ -69,15 +78,15 @@ export const SHOWS = [
       en: "Jonathan and Samantha and the Sexual Harassment",
     },
     videos: [
-      { id: "IEOh12k_SsA", lang: "pt" as const },
-      { id: "-s6F9r92BIw", lang: "en" as const },
+      { id: "IEOh12k_SsA", lang: "pt" as const, views: 155_509 },
+      { id: "-s6F9r92BIw", lang: "en" as const, views: 77_862 },
     ],
   },
   {
     title: { pt: "Poison", en: "Poison" },
     videos: [
-      { id: "u8CFI_oXe-A", lang: "pt" as const },
-      { id: "EcVZs36g8XA", lang: "en" as const },
+      { id: "u8CFI_oXe-A", lang: "pt" as const, views: 1_291_000 },
+      { id: "EcVZs36g8XA", lang: "en" as const, views: 410_753 },
     ],
   },
   {
@@ -86,8 +95,8 @@ export const SHOWS = [
       en: "Ginger Panther on the Aluminium Island",
     },
     videos: [
-      { id: "WUxie5cRafM", lang: "pt" as const },
-      { id: "-8UvhGDWKyg", lang: "en" as const },
+      { id: "WUxie5cRafM", lang: "pt" as const, views: 1_058_566 },
+      { id: "-8UvhGDWKyg", lang: "en" as const, views: 428_554 },
     ],
   },
   {
@@ -96,8 +105,8 @@ export const SHOWS = [
       en: "The Hyperpowerful Twins",
     },
     videos: [
-      { id: "TkcwROw2MMA", lang: "pt" as const },
-      { id: "KO4R6ef2EcA", lang: "en" as const },
+      { id: "TkcwROw2MMA", lang: "pt" as const, views: 436_165 },
+      { id: "KO4R6ef2EcA", lang: "en" as const, views: 309_739 },
     ],
   },
   {
@@ -106,15 +115,15 @@ export const SHOWS = [
       en: "The Ultra Strong Girls",
     },
     videos: [
-      { id: "r6g5Y26B6C0", lang: "pt" as const },
-      { id: "X8Xg6tISJaY", lang: "en" as const },
+      { id: "r6g5Y26B6C0", lang: "pt" as const, views: 504_474 },
+      { id: "X8Xg6tISJaY", lang: "en" as const, views: 279_823 },
     ],
   },
   {
     title: { pt: "Os Impressionantes", en: "The Impressives" },
     videos: [
-      { id: "M6o1lTztQRQ", lang: "pt" as const },
-      { id: "_nCkFGrYsfU", lang: "en" as const },
+      { id: "M6o1lTztQRQ", lang: "pt" as const, views: 825_558 },
+      { id: "_nCkFGrYsfU", lang: "en" as const, views: 1_195_500 },
     ],
   },
   {

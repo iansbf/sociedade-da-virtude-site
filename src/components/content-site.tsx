@@ -10,7 +10,19 @@ import {
   type Lang,
 } from "@/lib/catalog"
 
-function VideoCard({ id, lang }: { id: string; lang: Lang }) {
+function formatViews(views: number, lang: Lang) {
+  return views.toLocaleString(lang === "pt" ? "pt-BR" : "en-US")
+}
+
+function VideoCard({
+  id,
+  lang,
+  views,
+}: {
+  id: string
+  lang: Lang
+  views?: number
+}) {
   const [playing, setPlaying] = useState(false)
   const [thumb, setThumb] = useState(
     `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`
@@ -77,6 +89,12 @@ function VideoCard({ id, lang }: { id: string; lang: Lang }) {
           )}
         </div>
         <div className="vmeta">
+          {views != null ? (
+            <p className="views">
+              <span className="views-label">VIEWS:</span>
+              {formatViews(views, lang)}
+            </p>
+          ) : null}
           <a
             className="yt"
             href={`https://www.youtube.com/watch?v=${id}`}
@@ -207,6 +225,7 @@ export function ContentSite() {
                     key={`${show.title.pt}-${video.id}`}
                     id={video.id}
                     lang={video.lang}
+                    views={video.views}
                   />
                 ))}
               </div>
