@@ -35,7 +35,7 @@ export const CARTELAS: Record<Lang, string[]> = {
     "images/cartelas/pt-09.jpg",
   ],
   en: [
-    "images/cartelas/en-01-v2.jpg",
+    "images/cartelas/en-01-v3.jpg",
     "images/cartelas/en-02.jpg",
     "images/cartelas/en-03.jpg",
     "images/cartelas/en-04.jpg",
