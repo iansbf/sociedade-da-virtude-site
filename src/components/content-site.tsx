@@ -4,6 +4,7 @@ import { useEffect, useState, useSyncExternalStore } from "react"
 import {
   APRESENTACAO,
   CARTELAS,
+  FOOTER_LOGO,
   HERO_LOGO,
   I18N,
   SHOWS,
@@ -239,9 +240,14 @@ export function ContentSite() {
           {copy.backTop}
         </a>
         <div className="wrap">
-          Sociedade da Virtude · Society of Virtue &nbsp;·&nbsp; Animação de
-          Virtude
+          Sociedade da Virtude · Society of Virtue
         </div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          className="footer-logo"
+          src={FOOTER_LOGO}
+          alt="Society of Virtue"
+        />
       </footer>
     </>
   )

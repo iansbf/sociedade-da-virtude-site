@@ -21,6 +21,7 @@ export const APRESENTACAO: Record<Lang, string[]> = {
 }
 
 export const HERO_LOGO = "images/hero-logo.png"
+export const FOOTER_LOGO = "images/sv-crest.png"
 
 export const CARTELAS: Record<Lang, string[]> = {
   pt: [

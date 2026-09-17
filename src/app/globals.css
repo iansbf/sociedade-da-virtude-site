@@ -168,6 +168,13 @@ footer { padding-block: 40px 60px; text-align: center; color: var(--muted); font
   display: inline-block; margin-bottom: 18px; color: var(--accent); text-decoration: none;
   font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; font-size: 12px;
 }
+.footer-logo {
+  display: block;
+  width: min(168px, 42vw);
+  height: auto;
+  margin: 28px auto 0;
+  border-radius: 18px;
+}
 
 @media (max-width: 520px) {
   header.hero { padding-block: 40px 30px; }
