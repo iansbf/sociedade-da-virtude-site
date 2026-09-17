@@ -173,7 +173,6 @@ footer { padding-block: 40px 60px; text-align: center; color: var(--muted); font
   width: min(168px, 42vw);
   height: auto;
   margin: 28px auto 0;
-  border-radius: 18px;
 }
 
 @media (max-width: 520px) {
